@@ -6,10 +6,10 @@ class FavBookCard extends React.Component {
         return (
             <Card style={{ width: '18rem' }}>
                 <ListGroup variant="flush">
-                    <ListGroup.Item variant="primary">{this.props.info.title}</ListGroup.Item>
-                    <ListGroup.Item variant="success">{this.props.info.description}</ListGroup.Item>
-                    <ListGroup.Item variant="danger">{this.props.info.email}</ListGroup.Item>
-                    <ListGroup.Item variant="warning">{this.props.info.status}</ListGroup.Item>
+                    <ListGroup.Item variant="primary">Title: {this.props.info.title}</ListGroup.Item>
+                    <ListGroup.Item variant="success">Description: {this.props.info.description}</ListGroup.Item>
+                    <ListGroup.Item variant="danger">Email: {this.props.info.email}</ListGroup.Item>
+                    <ListGroup.Item variant="warning">Status: {this.props.info.status}</ListGroup.Item>
                 
                 </ListGroup>
             </Card>
