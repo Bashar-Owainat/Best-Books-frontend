@@ -12,35 +12,18 @@ from "react-router-dom";
 import BestBooks from './BestBooks';
 import Login from './Login';
 import Profile from './components/Pofile';
-// import axios from 'axios';
+
 
 class App extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      books: [], 
-      userEmail:''
-    }
-      
-    
-  }
+  
  
   
-  //localhost:3001/
-  // componentDidMount = async () => {
-    
-  //  let bookData = await axios.get(`${process.env.REACT_APP_SERVER}/getEmail?email=${this.state.userEmail}`)
-  //  this.setState({
-  //    books: bookData.data
-  //  })
-  // }
+  
   render() {
     
-    const {  isAuthenticated, user} = this.props.auth0;
-    console.log(user);
-    // this.setState({
-    //   userEmail: user.email
-    // })
+    const {  isAuthenticated} = this.props.auth0;
+    
+    
     console.log('app', this.props);
     return(
       <>
