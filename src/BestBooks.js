@@ -12,7 +12,9 @@ class MyFavoriteBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [], 
+      showUpdateForm:false, 
+      bookInfoUpdate:{}
 
     }
 
@@ -59,6 +61,14 @@ class MyFavoriteBooks extends React.Component {
     })
 
 
+  }
+  showUpdateBookForm = async (bookInfo) => {
+    console.log(bookInfo)
+
+    await this.setState({
+      showUpdateForm: true,
+      bookInfoUpdate: bookInfo
+    })
   }
 
   render() {
