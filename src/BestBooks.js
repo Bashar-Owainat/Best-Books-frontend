@@ -4,7 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import './BestBooks.css';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
-import FavBookCard from './components/FavBookCard';
+// import FavBookCard from './components/FavBookCard';
 import DeleteBook from './components/DeleteBook';
 import AddBookForm from './components/AddBookForm';
 
@@ -37,7 +37,7 @@ class MyFavoriteBooks extends React.Component {
     let bookFromInfo = {
       title1: e.target.title.value,
       description1: e.target.description.value,
-      email1: e.target.email.value,
+      email1: this.props.auth0.user.email,
       status1: e.target.status.value
     }
 
@@ -52,11 +52,13 @@ class MyFavoriteBooks extends React.Component {
   deleteBook = async (bookID) => {
     console.log('inside delete book');
     console.log(bookID);
-    let newBookData = await axios.delete(`${process.env.REACT_APP_SERVER}/deleteBook?bookID=${bookID}&ownerEmail=${this.state.books[0].email}`)
-
-    this.setState({
-      books: newBookData.data
+    axios.delete(`${process.env.REACT_APP_SERVER}/deleteBook?bookID=${bookID}&ownerEmail=${this.state.books[0].email}`).then((newBookData) => {
+      this.setState({
+        books: newBookData.data
+      })
     })
+
+
   }
 
   render() {
@@ -74,13 +76,13 @@ class MyFavoriteBooks extends React.Component {
           addBookFunc={this.addBook}
         />
 
-        {this.state.books.map(i => {
+        {/* {this.state.books.map(i => {
           return (
             <FavBookCard info={i} />
           )
         })
 
-        }
+        } */}
 
         {
           this.state.books.map((book, idx) => {
